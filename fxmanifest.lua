@@ -11,6 +11,10 @@ shared_script "@wxs_core/main.lua"
 client_script "client.lua"
 server_script "server.lua"
 
+files {
+    "uis/*.lua"
+}
+
 dependencies {
     "wxs_core",
     "wxs_framework"
