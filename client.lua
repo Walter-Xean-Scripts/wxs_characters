@@ -11,6 +11,9 @@ SelectUI:Init(UI, UI2)
 
 local function startCharacterSelection()
     local characters = Callbacks.Await("WXS:Server:GetCharacters")
+    DoScreenFadeIn(500)
+    Wait(500)
+
     if characters then
         SelectUI:ClearCharacters(charsElements)
         for _, char in ipairs(characters) do
@@ -36,8 +39,13 @@ CreateUI:Init(UI, UI2, startCharacterSelection)
 CreateThread(function()
     while true do
         while not NetworkIsSessionStarted() do
-            Wait(500)
+            Wait(0)
         end
+
+        DoScreenFadeOut(0)
+        Wait(100)
+        SwitchOutPlayer(PlayerPedId(), 0, 1)
+        Wait(500)
 
         startCharacterSelection()
         break
@@ -52,4 +60,6 @@ RegisterNetEvent("WXS:Client:CharacterLoaded", function(characterData)
     end
 
     UI:SetActive(false, false)
+
+    SwitchInPlayer(PlayerPedId())
 end)

@@ -12,7 +12,8 @@ client_script "client.lua"
 server_script "server.lua"
 
 files {
-    "uis/*.lua"
+    "uis/*.lua",
+    "images/*.png"
 }
 
 dependencies {
