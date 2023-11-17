@@ -1,7 +1,7 @@
 local Callbacks = WXSCore.Callbacks
 
 Callbacks.Register("WXS:Server:GetCharacters", function(source)
-    local player = exports.wxs_framework:GetPlayer(source)
+    local player = Framework.Player:Get(source)
 
     if player then
         local characters = player:GetCharacters()
@@ -12,7 +12,7 @@ Callbacks.Register("WXS:Server:GetCharacters", function(source)
 end)
 
 Callbacks.Register("WXS:Server:CreateCharacter", function(source, firstNameValue, lastNameValue, genderValue)
-    local player = exports.wxs_framework:GetPlayer(source)
+    local player = Framework.Player:Get(source)
 
     local success = player:CreateCharacter({
         firstName = firstNameValue,
@@ -26,7 +26,7 @@ Callbacks.Register("WXS:Server:CreateCharacter", function(source, firstNameValue
 end)
 
 Callbacks.Register("WXS:Server:SelectCharacter", function(source, characterId)
-    local player = exports.wxs_framework:GetPlayer(source)
+    local player = Framework.Player:Get(source)
 
     if player then
         local success = player:LoadCharacter(characterId)

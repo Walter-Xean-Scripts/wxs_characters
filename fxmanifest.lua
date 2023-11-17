@@ -7,7 +7,10 @@ version '1.0.0'
 
 lua54 'yes'
 
-shared_script "@wxs_core/main.lua"
+shared_scripts {
+    "@wxs_core/main.lua",
+    "@wxs_framework/imports/main.lua"
+}
 client_script "client.lua"
 server_script "server.lua"
 

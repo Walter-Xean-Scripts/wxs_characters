@@ -48,10 +48,11 @@ function CreateUI:Init(UI, UI2, showChars)
                 Callbacks("WXS:Server:CreateCharacter", function(success)
                     if success then
                         print("Character created!")
-                        showChars()
                     else
                         print("Character creation failed!")
                     end
+
+                    showChars()
                 end, firstNameValue, lastNameValue, genderValue)
                 UI2:SetActive(false, false)
             end

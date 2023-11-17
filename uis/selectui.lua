@@ -9,7 +9,6 @@ function SelectUI:Init(UI, UI2)
         marginBottom = "30px",
         onClick = function()
             UI:SetActive(false, false)
-            Wait(100)
             UI2:SetActive(true, true)
         end
     })
